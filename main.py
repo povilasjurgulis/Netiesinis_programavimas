@@ -1,6 +1,5 @@
 # 3 Netiesinis programavimas
 
-import sympy as sp
 import numpy as np
 
 # ---------------------------------
@@ -58,3 +57,14 @@ def B(X, r):
     return f(X) + 1/r * b(X)
 
 print (f"Baudos testas: {B(X1, 0.2)}")   
+
+
+# 4. Baudos daugiklio r įtaką baudos funkcijos reikšmėms
+
+r = np.array([0.1, 0.2, 0.5, 0.8, 1, 3, 5, 10])
+
+print(f"f(Xm) = {f(Xm)}")
+print(f"b(Xm) = {b(Xm)}")
+
+for r_value in r:
+    print(f"Baudos funkcijos reiksme su r = {r_value} taske Xm yra {B(Xm, r_value)}")
