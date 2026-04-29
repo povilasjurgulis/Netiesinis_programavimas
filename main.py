@@ -44,16 +44,17 @@ Xm = [9/10, 3/10, 4/10]
 print (f"f(Xm) = {f(Xm)}, g(Xm) = {g(Xm)}, h(Xm) = {h(Xm)}")
 
 
-# ------------------
-# 3. Baudos funkcija
+# -----------------------------
+# 3. Kvadratinė Baudos funkcija
 
+# Lygybinis apribojimas g(X) baudžiamas kvadratu.
+# Nelygybinius apribojimus baudžiame tik tada, kai h_i(X) > 0.
+# Bauda:
 def b(X):
-    return max(0, g(X))**2 + h(X)[0]**2 + h(X)[1]**2 + h(X)[2]**2
+    return sum(max(0, hi)**2 for hi in h(X)) + g(X)**2
 
+# Baudos funkcija:
 def B(X, r):
-    if g(X) == 0 and h(x) <= 0:
-        return f(X)
-    else:
-        return f(X) + 1/r * b(X)
+    return f(X) + 1/r * b(X)
 
-print (f"Baudos test: {B(X1, 0.2)}")   
+print (f"Baudos testas: {B(X1, 0.2)}")   
